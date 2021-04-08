@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ComProject</string>
+    <string name="contact_label">Messages</string>
+    <string name="newcontact_label">New</string>
+    <string name="backbutton_label">←</string>
+    <string name="closebutton_label">X</string>
+    <string name="message_label">Contact Name/Phone Number</string>
+    <string name="secure_label_message">Should these messages be secure?</string>
+    <string name="message_bar_hint">Enter Message</string>
+</resources>
