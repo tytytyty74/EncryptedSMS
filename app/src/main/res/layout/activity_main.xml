@@ -69,34 +69,18 @@
 
     </LinearLayout>
 
-    <TableLayout
-        android:id="@+id/ContactList"
+    <ListView
+        android:id="@+id/Contact_List"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
+        android:layout_weight="1" />
 
     <Button
         android:id="@+id/NewContact"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="@dimen/newcontact_size"
-        android:layout_height="@dimen/newcontact_size"
+        android:layout_height="83dp"
+        android:layout_weight="0"
         android:background="@drawable/circle_button"
         android:text="@string/newcontact_label"
         android:translationX="310dp" />
