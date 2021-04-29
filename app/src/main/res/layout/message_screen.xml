@@ -42,7 +42,7 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:background="@drawable/VideoCamera" />
 
         <ImageButton
             android:id="@+id/PhoneBut"
@@ -56,14 +56,14 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:background="@drawable/SearchGlass" />
 
         <ImageButton
             android:id="@+id/SettingsBut2"
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:background="@drawable/SettingGear" />
 
         <Button
             android:id="@+id/CloseBut2"
@@ -127,8 +127,7 @@
             android:layout_width="@dimen/sendbutton_size"
             android:layout_height="@dimen/sendbutton_size"
             android:layout_weight="1"
-            android:background="@drawable/circle_button"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:background="@drawable/MessagePlane" />
 
         <EditText
             android:id="@+id/MessageBar"

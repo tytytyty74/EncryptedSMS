@@ -44,9 +44,8 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
-            android:background="@drawable/circle_button"
+            android:background="@drawable/SearchGlass"
             android:visibility="visible"
-            app:srcCompat="@drawable/ic_launcher_background"
             tools:visibility="visible" />
 
         <ImageButton
@@ -54,8 +53,7 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
-            android:background="@drawable/circle_button"
-            app:srcCompat="@drawable/ic_launcher_background"
+            android:background="@drawable/SettingGear"
             tools:visibility="visible" />
 
         <Button
