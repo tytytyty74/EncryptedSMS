@@ -18,6 +18,7 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
+            android:visibility="visible"
             app:srcCompat="@drawable/ic_launcher_background"
             tools:visibility="visible" />
 
@@ -26,7 +27,7 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background = "@drawable/circle_button"
+            android:background="@drawable/circle_button"
             android:text="@string/backbutton_label"
             tools:visibility="gone" />
 
@@ -37,7 +38,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/contact_label" />
+            android:text="@string/contact_label"
+            android:textSize="@dimen/contact_label_text_size" />
 
         <ImageButton
             android:id="@+id/SearchBut"

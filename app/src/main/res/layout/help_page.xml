@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/Topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/BackBut4"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:layout_weight="1"
+            android:background="@drawable/circle_button"
+            android:text="@string/backbutton_label" />
+
+        <TextView
+            android:id="@+id/HelpPageLabel"
+            android:layout_width="@dimen/pagelabel_size"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/help_label"
+            android:textAlignment="textEnd"
+            android:textSize="@dimen/contact_label_text_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/HelpContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/HelpQuestionContent1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_size"
+            android:background="@color/lightgray"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/HelpQuestion1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_question1"
+                android:textSize="@dimen/question_size" />
+
+            <TextView
+                android:id="@+id/HelpAnswer1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_answer1"
+                android:textSize="@dimen/contact_label_text_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/HelpQuestionContent2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_size"
+            android:background="@color/lightgray"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/HelpQuestion2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_question2"
+                android:textSize="@dimen/question_size" />
+
+            <TextView
+                android:id="@+id/HelpAnswer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_answer2"
+                android:textSize="@dimen/contact_label_text_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/HelpQuestionContent3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/margin_size"
+            android:background="@color/lightgray"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/HelpQuestion3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_question3"
+                android:textSize="@dimen/question_size" />
+
+            <TextView
+                android:id="@+id/HelpAnswer3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_answer3"
+                android:textSize="@dimen/contact_label_text_size" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

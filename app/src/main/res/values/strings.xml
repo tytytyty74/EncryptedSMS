@@ -1,10 +1,22 @@
 <resources>
     <string name="app_name">ComProject</string>
-    <string name="contact_label">Messages</string>
+    <string name="contact_label">Contacts</string>
     <string name="newcontact_label">New</string>
     <string name="backbutton_label">←</string>
     <string name="closebutton_label">X</string>
     <string name="message_label">Contact Name/Phone Number</string>
     <string name="secure_label_message">Should these messages be secure?</string>
     <string name="message_bar_hint">Enter Message</string>
+    <string name="settings_page_label">Settings</string>
+    <string name="help_label">Help</string>
+    <string name="about_label">About</string>
+    <string name="about_icon">i</string>
+    <string name="notice_label">Notifications</string>
+    <string name="privacy_label">Privacy</string>
+    <string name="help_question1">Are my messages secure?</string>
+    <string name="help_answer1">If the checkbox at the upper left hand corner of the screen, shown below, is checked, then yes.</string>
+    <string name="help_question2">Why is my connection failing?</string>
+    <string name="help_answer2">In order to establish a secure connection, both you and the recipient must be using this app. if either party is not using the app, then the message attempting to establish secure connection will be garbage to the person not using this app, and their app will not know how to handle the message.</string>
+    <string name="help_question3">Who do I contact with questions?</string>
+    <string name="help_answer3">Send an email to example@email.org. We will reply soon.</string>
 </resources>

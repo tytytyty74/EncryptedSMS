@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/Topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/BackBut3"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:layout_weight="1"
+            android:background="@drawable/circle_button"
+            android:text="@string/backbutton_label" />
+
+        <TextView
+            android:id="@+id/SettingsLabel"
+            android:layout_width="@dimen/pagelabel_size"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/settings_page_label"
+            android:textAlignment="textEnd"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/MinipageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/Helpbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@color/lightgray"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/HelpBut"
+                android:layout_width="@dimen/button_size"
+                android:layout_height="@dimen/button_size"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/HelpLabel"
+                android:layout_width="@dimen/pagelabel_size"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/help_label"
+                android:textSize="@dimen/minipage_label_text_size" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Aboutbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@color/lightgray"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/AboutBut"
+                android:layout_width="@dimen/button_size"
+                android:layout_height="@dimen/button_size"
+                android:layout_weight="1"
+                android:background="@drawable/circle_button"
+                android:text="@string/about_icon" />
+
+            <TextView
+                android:id="@+id/AboutLabel"
+                android:layout_width="@dimen/pagelabel_size"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/about_label"
+                android:textSize="@dimen/minipage_label_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Noticebar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_size"
+            android:background="@color/lightgray"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/NoticeBut"
+                android:layout_width="@dimen/button_size"
+                android:layout_height="@dimen/button_size"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/NoticeLabel"
+                android:layout_width="@dimen/pagelabel_size"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/notice_label"
+                android:textSize="@dimen/minipage_label_text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Privacybar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_size"
+            android:background="@color/lightgray"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/PrivacyBut"
+                android:layout_width="@dimen/button_size"
+                android:layout_height="@dimen/button_size"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/PrivacyLabel"
+                android:layout_width="@dimen/pagelabel_size"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/privacy_label"
+                android:textSize="@dimen/minipage_label_text_size" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

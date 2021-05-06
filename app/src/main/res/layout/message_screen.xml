@@ -35,7 +35,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="@string/message_label"
-            android:textSize="@dimen/contact_label_text_size" />
+            android:textSize="@dimen/message_search_text_size" />
 
         <ImageButton
             android:id="@+id/VideoBut"
