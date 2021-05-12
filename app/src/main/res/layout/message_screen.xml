@@ -24,6 +24,7 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
+            android:onClick="movetoMain"
             android:text="@string/backbutton_label"
             android:visibility="gone"
             tools:visibility="gone" />
@@ -43,7 +44,7 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
-            android:background="@drawable/VideoCamera" />
+            android:background="@drawable/vidcamera" />
 
         <ImageButton
             android:id="@+id/PhoneBut"
@@ -57,14 +58,15 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
-            android:background="@drawable/SearchGlass" />
+            android:background="@drawable/magglass" />
 
         <ImageButton
             android:id="@+id/SettingsBut2"
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
-            android:background="@drawable/SettingGear" />
+            android:background="@drawable/settingsgear"
+            android:onClick="movetoSettings" />
 
         <Button
             android:id="@+id/CloseBut2"
@@ -72,6 +74,7 @@
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
             android:text="@string/closebutton_label"
+            android:visibility="gone"
             tools:visibility="gone" />
     </LinearLayout>
 
@@ -128,7 +131,7 @@
             android:layout_width="@dimen/sendbutton_size"
             android:layout_height="@dimen/sendbutton_size"
             android:layout_weight="1"
-            android:background="@drawable/MessagePlane" />
+            android:background="@drawable/send_message_plane" />
 
         <EditText
             android:id="@+id/MessageBar"

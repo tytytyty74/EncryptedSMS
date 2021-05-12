@@ -15,7 +15,6 @@ import android.provider.ContactsContract;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
-import android.view.View;
 import android.widget.ListView;
 
 import java.math.BigInteger;
@@ -227,4 +226,8 @@ public class MainActivity extends AppCompatActivity {
         Intent movetoSet = new Intent(getApplicationContext(), Settings_Page.class);
         startActivity(movetoSet);
     }
+    public void movetoMain(View view){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
+
 }

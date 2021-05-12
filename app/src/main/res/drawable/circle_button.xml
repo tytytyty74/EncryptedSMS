@@ -7,7 +7,7 @@
     </item>
     <item android:state_pressed = "true">
         <shape android:shape = "oval">
-            <solid android:color = "808080"/>
+            <solid android:color = "#808080"/>
         </shape>
     </item>
 </selector>
