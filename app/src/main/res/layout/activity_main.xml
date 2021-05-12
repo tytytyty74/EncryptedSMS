@@ -29,6 +29,7 @@
             android:layout_weight="1"
             android:background="@drawable/circle_button"
             android:text="@string/backbutton_label"
+            android:visibility="gone"
             tools:visibility="gone" />
 
         <EditText
@@ -66,6 +67,7 @@
             android:layout_weight="1"
             android:background="@drawable/circle_button"
             android:text="@string/closebutton_label"
+            android:visibility="gone"
             tools:visibility="gone" />
 
     </LinearLayout>
