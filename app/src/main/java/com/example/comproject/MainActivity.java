@@ -22,12 +22,11 @@ import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
-    String test = "hello world";
     public BigInteger g = BigInteger.valueOf(31);
     public BigInteger n = BigInteger.valueOf(1152921504606846976L);
     private BigInteger a = BigInteger.valueOf(0);
     private BigInteger ga;
-    private HashMap<String, BigInteger> privateKeys = new HashMap<>();
+    private HashMap<String, Contact> privateKeys = new HashMap<>();
     private BigInteger gab;
     private Handler handler = new Handler();
 
@@ -122,7 +121,13 @@ public class MainActivity extends AppCompatActivity {
                         sendMessage("Code:0,Value:" + ga.toString(), msg[0]);
                         if (map.containsKey("Value")) {
                             gab = ga.modPow(BigInteger.valueOf(Long.parseLong(map.get("Value"))), n);
-                            privateKeys.put(msg[0], gab);
+                            if (privateKeys.containsKey(msg[0])) {
+                                privateKeys.get(msg[0]).setKey(gab);
+                            }
+                            else
+                            {
+                                privateKeys.put(msg[0], new Contact(msg[0], gab));
+                            }
                             current = STAGE.END;
                             Log.i("Main", "SUCCESS");
                         }
