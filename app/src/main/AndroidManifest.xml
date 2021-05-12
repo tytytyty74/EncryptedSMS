@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Settings_Page"></activity>
+        <activity android:name=".Message_Screen"></activity>
+        <activity android:name=".HelpScreen"></activity>
     </application>
 
 </manifest>

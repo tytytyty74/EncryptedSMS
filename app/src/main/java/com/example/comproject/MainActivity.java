@@ -32,14 +32,12 @@ public class MainActivity extends AppCompatActivity {
     private Handler handler = new Handler();
 
 
-
-
-
     enum STAGE {
         START,
         WAITING,
         END
     }
+
     public STAGE current = STAGE.START;
 
     //A cursor grants read-write access to a database using the results from a query.
@@ -57,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Checks if read and write contacts permission is inaccessible, then sends a request if it is.
-        if(ContextCompat.checkSelfPermission(this.getApplicationContext(), Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_DENIED){
-            requestPermissions(new String[] {Manifest.permission.READ_CONTACTS}, 1);
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(), Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_DENIED) {
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, 1);
         }
-        if(ContextCompat.checkSelfPermission(this.getApplicationContext(), Manifest.permission.WRITE_CONTACTS) == PackageManager.PERMISSION_DENIED){
-            requestPermissions(new String[] {Manifest.permission.WRITE_CONTACTS}, 1);
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(), Manifest.permission.WRITE_CONTACTS) == PackageManager.PERMISSION_DENIED) {
+            requestPermissions(new String[]{Manifest.permission.WRITE_CONTACTS}, 1);
         }
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(), Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_DENIED) {
             requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
@@ -70,18 +68,18 @@ public class MainActivity extends AppCompatActivity {
             requestPermissions(new String[]{Manifest.permission.RECEIVE_SMS}, 2);
         }
         a = BigInteger.valueOf(findA());
-        ga = g.modPow(a,n);
+        ga = g.modPow(a, n);
         handler.post(runnable);
 
         ContactList = findViewById(R.id.Contact_List);
         getContacts();
     }
-    private boolean sendMessage(String text)
-    {
+
+    private boolean sendMessage(String text) {
         return sendMessage(text, "5556");
     }
-    private boolean sendMessage(String text, String address)
-    {
+
+    private boolean sendMessage(String text, String address) {
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(), Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_DENIED) {
             requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 3);
             return false;
@@ -95,24 +93,22 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
-    public long findA()
-    {
+
+    public long findA() {
         return ThreadLocalRandom.current().nextLong(n.longValue());
     }
+
     private Runnable runnable = new Runnable() {
         @Override
         public void run() {
             // Insert custom code here
-            if (StaticQueue.hasData())
-            {
+            if (StaticQueue.hasData()) {
                 String[] msg = StaticQueue.dequeue();
-                if (msg[1].startsWith("Code:"))
-                {
+                if (msg[1].startsWith("Code:")) {
 
                     String[] temp = msg[1].split(",");
                     HashMap<String, String> map = new HashMap<>();
-                    for (String i : temp)
-                    {
+                    for (String i : temp) {
                         String[] temp2 = i.split(":");
                         if (temp2.length == 2) {
                             map.put(temp2[0], temp2[1]);
@@ -139,19 +135,18 @@ public class MainActivity extends AppCompatActivity {
             handler.postDelayed(runnable, 2000);
         }
     };
+
     public void SendText(View view) {
-        if (a.equals(BigInteger.ZERO))
-        {
+        if (a.equals(BigInteger.ZERO)) {
             a = BigInteger.valueOf(findA());
             current = STAGE.START;
         }
-        switch (current)
-        {
+        switch (current) {
             case START:
                 //Log.i("MyCode", "g: "+g);
                 //Log.i("MyCode", "a: "+a);
                 //Log.i("MyCode","g^a (mod n): "+ g.modPow(a, n).toString());
-                sendMessage("Code:0,Value:"+ga.toString());
+                sendMessage("Code:0,Value:" + ga.toString());
                 break;
             case WAITING:
                 break;
@@ -187,11 +182,11 @@ public class MainActivity extends AppCompatActivity {
         int j = 0;
         for (int i = 0; i < message.length(); i += length) {
             if (i + length > message.length()) {
-                retval[j] = message.substring(i, message.length()) ;
+                retval[j] = message.substring(i, message.length());
             } else {
                 retval[j] = message.substring(i, i + length);
             }
-            retval[j] += String.format(Locale.ENGLISH, " (%02d/%02d)", j+1, retval.length);
+            retval[j] += String.format(Locale.ENGLISH, " (%02d/%02d)", j + 1, retval.length);
             j++;
         }
         return retval;
@@ -223,16 +218,23 @@ public class MainActivity extends AppCompatActivity {
         ContactList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
 
-    public void movetoMessage(){
+    public void movetoMessage() {
         Intent movetoMess = new Intent(getApplicationContext(), Message_Screen.class);
         startActivity(movetoMess);
     }
-    public void movetoSettings(View view){
+
+    public void movetoSettings(View view) {
         Intent movetoSet = new Intent(getApplicationContext(), Settings_Page.class);
         startActivity(movetoSet);
     }
-    public void movetoMain(View view){
+
+    public void movetoMain(View view) {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
+
+    public void movetoHelp(View view) {
+        startActivity(new Intent(getApplicationContext(), HelpScreen.class));
+    }
+
 
 }
