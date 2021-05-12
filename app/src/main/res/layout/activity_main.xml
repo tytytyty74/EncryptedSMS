@@ -46,7 +46,7 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
-            android:background="@drawable/SearchGlass"
+            android:background="@drawable/magglass"
             android:visibility="visible"
             tools:visibility="visible" />
 
@@ -55,7 +55,8 @@
             android:layout_width="@dimen/button_size"
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
-            android:background="@drawable/SettingGear"
+            android:background="@drawable/settingsgear"
+            android:onClick="movetoSettings"
             tools:visibility="visible" />
 
         <Button

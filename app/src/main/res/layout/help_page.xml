@@ -17,6 +17,7 @@
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
             android:background="@drawable/circle_button"
+            android:onClick="movetoSettings"
             android:text="@string/backbutton_label" />
 
         <TextView

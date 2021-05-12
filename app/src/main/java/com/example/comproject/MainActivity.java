@@ -3,6 +3,7 @@ package com.example.comproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -221,4 +222,17 @@ public class MainActivity extends AppCompatActivity {
         //Sets the # of items displayed at once.
         ContactList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
+
+    public void movetoMessage(){
+        Intent movetoMess = new Intent(getApplicationContext(), Message_Screen.class);
+        startActivity(movetoMess);
+    }
+    public void movetoSettings(View view){
+        Intent movetoSet = new Intent(getApplicationContext(), Settings_Page.class);
+        startActivity(movetoSet);
+    }
+    public void movetoMain(View view){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
+
 }
