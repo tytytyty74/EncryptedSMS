@@ -7,14 +7,13 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import java.util.Locale;
-
-import java.math.BigInteger;
 
 public class Message_Screen extends AppCompatActivity {
     public String contactName;
@@ -39,6 +38,21 @@ public class Message_Screen extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(), Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_DENIED) {
             requestPermissions(new String[]{Manifest.permission.SEND_SMS}, 1);
         }
+        secure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                {
+                    sendMessage("Code:0,Value:"+MainActivity.ga.toString(), contactNumber);
+                }
+                else
+                {
+                    if (MainActivity.privateKeys.containsKey(contactNumber))
+                    {
+                        MainActivity.privateKeys.get(contactNumber).setKey(null);
+                    }
+                }
+            }
+        });
     }
     public void setTitle(){
         EditText MSL = findViewById(R.id.MessageSearchLabel);

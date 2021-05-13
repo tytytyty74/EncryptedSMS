@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -30,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
     public Intent movetoMess;
 
 
-    public BigInteger g = BigInteger.valueOf(31);
-    public BigInteger n = BigInteger.valueOf(1152921504606846976L);
-    private BigInteger a = BigInteger.valueOf(0);
-    private BigInteger ga;
+    protected static BigInteger g = BigInteger.valueOf(31);
+    protected static BigInteger n = BigInteger.valueOf(1152921504606846976L);
+    protected static BigInteger a = BigInteger.valueOf(0);
+    protected static BigInteger ga;
     protected static HashMap<String, Contact> privateKeys = new HashMap<>();
     private BigInteger gab;
     private Handler handler = new Handler();
@@ -145,11 +146,15 @@ public class MainActivity extends AppCompatActivity {
                                 privateKeys.put(msg[0], new Contact(msg[0], gab));
                             }
                             sendMessage("Code:2,Value:"+privateKeys.get(msg[0]).encryptMessage("hello world"), msg[0]);
-                            Log.e("MAIN", "Code:3,Value:"+privateKeys.get(msg[0]).decryptMessage(privateKeys.get(msg[0]).encryptMessage("hello world")));
-                            sendMessage("Code:3,Value:"+privateKeys.get(msg[0]).decryptMessage(privateKeys.get(msg[0]).encryptMessage("hello world")), msg[0]);
+                            //Log.e("MAIN", "Code:3,Value:"+privateKeys.get(msg[0]).decryptMessage(privateKeys.get(msg[0]).encryptMessage("hello world")));
+                            //sendMessage("Code:3,Value:"+privateKeys.get(msg[0]).decryptMessage(privateKeys.get(msg[0]).encryptMessage("hello world")), msg[0]);
                             current = STAGE.END;
                             Log.i("Main", "SUCCESS");
                         }
+                    }
+                    else if (map.get("Code").equals("2") && privateKeys.containsKey(msg[0]))
+                    {
+                        Toast.makeText(MainActivity.this, privateKeys.get(msg[0]).decryptMessage(map.get("Value")), Toast.LENGTH_SHORT).show();
                     }
                 }
             }

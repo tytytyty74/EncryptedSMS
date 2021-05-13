@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.util.Log;
-import android.widget.Toast;
 
 public class SMSReciever extends BroadcastReceiver {
     private static final String TAG =
@@ -46,7 +45,7 @@ public class SMSReciever extends BroadcastReceiver {
 
                 // Log and display the SMS message.
                 Log.e(TAG, "onReceive: " + strMessage);
-                Toast.makeText(context, "hello world", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(context, "hello world", Toast.LENGTH_SHORT).show();
 
             }
         }
