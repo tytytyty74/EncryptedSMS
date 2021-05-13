@@ -15,7 +15,7 @@ public class Message_Screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message_screen);
         Intent movetoMess = getIntent();
-        contactName= movetoMess.getStringExtra("contact_Name");
+        contactName= movetoMess.getStringExtra("contact_name");
         contactNumber= movetoMess.getStringExtra("contact_Number");
         setTitle();
     }
