@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public String contactNumber;
     public Intent movetoMess;
 
+
     public BigInteger g = BigInteger.valueOf(31);
     public BigInteger n = BigInteger.valueOf(1152921504606846976L);
     private BigInteger a = BigInteger.valueOf(0);
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     //A cursor grants read-write access to a database using the results from a query.
     Cursor Cursor;
+    MatrixCursor matrix;
 
     //A special pre-formatted listview designed to display contacts.
     ListView ContactList;
@@ -220,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC");
 
         //Creates a matrix cursor that will then be adapted
-        MatrixCursor matrix = new MatrixCursor(new String[] {ContactsContract.CommonDataKinds.Phone._ID, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER});
+        matrix = new MatrixCursor(new String[] {ContactsContract.CommonDataKinds.Phone._ID, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER});
         String lastNumber = "";
 
         //This code will take only the unique values from the Cursor and put them into the matrix cusor
@@ -255,8 +257,8 @@ public class MainActivity extends AppCompatActivity {
         AdapterView.OnItemClickListener ItemClick = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                contactName = Cursor.getString(Cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-                contactNumber = Cursor.getString(Cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                contactName = matrix.getString(matrix.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                contactNumber = matrix.getString(matrix.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                 movetoMess.putExtra("contact_name", contactName);
                 movetoMess.putExtra("contact_Number", contactNumber);
                 movetoMessage(view);
