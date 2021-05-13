@@ -136,7 +136,7 @@
             android:layout_height="@dimen/sendbutton_size"
             android:layout_weight="1"
             android:background="@drawable/send_message_plane"
-            android:onClick="SendText" />
+            android:onClick="sendText" />
 
         <EditText
             android:id="@+id/MessageBar"
