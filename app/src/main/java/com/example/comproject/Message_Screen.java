@@ -3,6 +3,7 @@ package com.example.comproject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Message_Screen extends AppCompatActivity {
     public String contactName;
     public String contactNumber;
+    private CheckBox secure;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +19,12 @@ public class Message_Screen extends AppCompatActivity {
         Intent movetoMess = getIntent();
         contactName= movetoMess.getStringExtra("contact_name");
         contactNumber= movetoMess.getStringExtra("contact_Number");
+        secure = findViewById(R.id.SecureBox);
         setTitle();
+        if (MainActivity.privateKeys.containsKey(contactNumber) && MainActivity.privateKeys.get(contactNumber).HasKey())
+        {
+            secure.setChecked(true);
+        }
     }
     public void setTitle(){
         EditText MSL = findViewById(R.id.MessageSearchLabel);
