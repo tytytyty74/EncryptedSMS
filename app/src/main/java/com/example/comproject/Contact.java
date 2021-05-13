@@ -91,7 +91,7 @@ public class Contact {
         try {
             Cipher encrypt = Cipher.getInstance("AES");
             encrypt.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(keyMagic(key.toByteArray()), "AES"));
-            return new String(Base64.encode(encrypt.doFinal(message.getBytes(StandardCharsets.UTF_8)), Base64.DEFAULT), StandardCharsets.UTF_8);
+            return Base64.encodeToString(Base64.encode(encrypt.doFinal(message.getBytes(StandardCharsets.UTF_8)), Base64.DEFAULT), Base64.DEFAULT);
         }
         catch (NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException e)
         {
@@ -104,7 +104,7 @@ public class Contact {
         try {
             Cipher encrypt = Cipher.getInstance("AES");
             encrypt.init(Cipher.DECRYPT_MODE, new SecretKeySpec(keyMagic(key.toByteArray()), "AES"));
-            return new String(encrypt.doFinal(Base64.decode(message.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT)), StandardCharsets.UTF_8);
+            return Base64.encodeToString(encrypt.doFinal(Base64.decode(message.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT)), Base64.DEFAULT);
         }
         catch (NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException e)
         {
