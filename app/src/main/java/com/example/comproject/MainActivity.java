@@ -2,6 +2,7 @@ package com.example.comproject;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -77,6 +78,14 @@ public class MainActivity extends AppCompatActivity {
         movetoMess = new Intent(getApplicationContext(), Message_Screen.class);
         ContactList = findViewById(R.id.Contact_List);
         getContacts();
+        IntentFilter intentFilter = new IntentFilter("android.provider.Telephony.SMS_RECEIVED");
+        intentFilter.setPriority(999);
+        registerReceiver(new SMSReciever(), intentFilter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     private boolean sendMessage(String text) {
