@@ -217,19 +217,9 @@ public class MainActivity extends AppCompatActivity {
         Intent movetoMess = new Intent(getApplicationContext(), Message_Screen.class);
         startActivity(movetoMess);
     }
-
     public void movetoSettings(View view) {
         Intent movetoSet = new Intent(getApplicationContext(), Settings_Page.class);
         startActivity(movetoSet);
     }
-
-    public void movetoMain(View view) {
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-    }
-
-    public void movetoHelp(View view) {
-        startActivity(new Intent(getApplicationContext(), HelpScreen.class));
-    }
-
 
 }
