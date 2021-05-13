@@ -10,6 +10,7 @@ import android.provider.ContactsContract;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -219,6 +220,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Sets the # of items displayed at once.
         ContactList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        AdapterView.OnItemClickListener ItemClick = new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                movetoMessage(view);
+            }
+        };
+        ContactList.setOnItemClickListener(ItemClick);
     }
 
     public void movetoMessage(View view) {
@@ -229,5 +237,6 @@ public class MainActivity extends AppCompatActivity {
         Intent movetoSet = new Intent(getApplicationContext(), Settings_Page.class);
         startActivity(movetoSet);
     }
+
 
 }
