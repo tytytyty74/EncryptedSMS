@@ -14,5 +14,10 @@ public class Settings_Page extends AppCompatActivity{
         setContentView(R.layout.settings_page);
     }
 
-
+    public void movetoMain(View view) {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
+    public void movetoHelp(View view) {
+        startActivity(new Intent(getApplicationContext(), HelpScreen.class));
+    }
 }

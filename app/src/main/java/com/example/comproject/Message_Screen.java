@@ -13,5 +13,7 @@ public class Message_Screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.message_screen);
     }
-
+    public void movetoMain(View view) {
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    }
 }
