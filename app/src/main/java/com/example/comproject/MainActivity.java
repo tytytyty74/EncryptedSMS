@@ -216,24 +216,24 @@ public class MainActivity extends AppCompatActivity {
      */
     public void getContacts() {
 
-        // Creates a cursor and then send a query requesting contact data
-        Cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
+        // Creates a cursor and then send a query requesting contact data, now does it alphabetically
+        Cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC");
 
+        //Creates a matrix cursor that will then be adapted
         MatrixCursor matrix = new MatrixCursor(new String[] {ContactsContract.CommonDataKinds.Phone._ID, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER});
         String lastNumber = "";
 
+        //This code will take only the unique values from the Cursor and put them into the matrix cusor
         while(Cursor.moveToNext()){
             String id = Cursor.getString(Cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone._ID));
             String name = Cursor.getString(Cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
             String number = Cursor.getString(Cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
-            //Some condition to check previous data is not matched and only then add row
+            //Checks if previous data matches current entry, if not, then add row
             if(!lastNumber.contains(number)){
                 lastNumber = number;
                 matrix.addRow(new String[]{id, name, number});
             }
-
-
         }
 
         Cursor.close();
