@@ -16,4 +16,8 @@ public class Message_Screen extends AppCompatActivity {
     public void movetoMain(View view) {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
+    public void movetoSettings(View view) {
+        Intent movetoSet = new Intent(getApplicationContext(), Settings_Page.class);
+        startActivity(movetoSet);
+    }
 }

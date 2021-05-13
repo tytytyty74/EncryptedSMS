@@ -221,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
         ContactList.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
 
-    public void movetoMessage() {
+    public void movetoMessage(View view) {
         Intent movetoMess = new Intent(getApplicationContext(), Message_Screen.class);
         startActivity(movetoMess);
     }
