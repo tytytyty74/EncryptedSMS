@@ -33,24 +33,11 @@
             android:visibility="gone"
             tools:visibility="gone" />
 
-        <EditText
-            android:id="@+id/ContactSearchLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/contact_label"
-            android:textSize="@dimen/contact_label_text_size" />
-
-        <ImageButton
-            android:id="@+id/SearchBut"
-            android:layout_width="@dimen/button_size"
-            android:layout_height="@dimen/button_size"
-            android:layout_weight="1"
-            android:background="@drawable/magglass"
-            android:visibility="visible"
-            tools:visibility="visible" />
+        <SearchView
+            android:id="@+id/ContactSearchBar"
+            android:layout_width="@dimen/contact_search"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <ImageButton
             android:id="@+id/SettingsBut"
