@@ -131,8 +131,10 @@ public class MainActivity extends AppCompatActivity {
                             map.put(temp2[0], temp2[1]);
                         }
                     }
-                    if (map.get("Code").equals("0")) {
-                        sendMessage("Code:0,Value:" + ga.toString(), msg[0]);
+                    if (map.get("Code").equals("0") | map.get("Code").equals("1")) {
+                        if (map.get("Code").equals("0")) {
+                            sendMessage("Code:1,Value:" + ga.toString(), msg[0]);
+                        }
                         if (map.containsKey("Value")) {
                             gab = ga.modPow(BigInteger.valueOf(Long.parseLong(map.get("Value"))), n);
                             if (privateKeys.containsKey(msg[0])) {
