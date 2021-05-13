@@ -23,6 +23,9 @@ import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
+    public String contactName;
+    public String contactNumber;
+    public Intent movetoMess;
     public BigInteger g = BigInteger.valueOf(31);
     public BigInteger n = BigInteger.valueOf(1152921504606846976L);
     private BigInteger a = BigInteger.valueOf(0);
@@ -71,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         a = BigInteger.valueOf(findA());
         ga = g.modPow(a, n);
         handler.post(runnable);
-
+        movetoMess = new Intent(getApplicationContext(), Message_Screen.class);
         ContactList = findViewById(R.id.Contact_List);
         getContacts();
     }
@@ -223,6 +226,10 @@ public class MainActivity extends AppCompatActivity {
         AdapterView.OnItemClickListener ItemClick = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                contactName = Cursor.getString(Cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                contactNumber = Cursor.getString(Cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                movetoMess.putExtra("contact_name", contactName);
+                movetoMess.putExtra("contact_Number", contactNumber);
                 movetoMessage(view);
             }
         };
@@ -230,7 +237,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void movetoMessage(View view) {
-        Intent movetoMess = new Intent(getApplicationContext(), Message_Screen.class);
         startActivity(movetoMess);
     }
     public void movetoSettings(View view) {
