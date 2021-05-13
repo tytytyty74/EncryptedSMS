@@ -144,9 +144,9 @@ public class MainActivity extends AppCompatActivity {
                             {
                                 privateKeys.put(msg[0], new Contact(msg[0], gab));
                             }
-                            sendMessage("Code:1,Value:"+privateKeys.get(msg[0]).encryptMessage("hello world"), msg[0]);
-                            Log.e("MAIN", "Code:2,Value:"+privateKeys.get(msg[0]).decryptMessage(privateKeys.get(msg[0]).encryptMessage("hello world")));
-                            sendMessage("Code:2,Value:"+privateKeys.get(msg[0]).decryptMessage(privateKeys.get(msg[0]).encryptMessage("hello world")), msg[0]);
+                            sendMessage("Code:2,Value:"+privateKeys.get(msg[0]).encryptMessage("hello world"), msg[0]);
+                            Log.e("MAIN", "Code:3,Value:"+privateKeys.get(msg[0]).decryptMessage(privateKeys.get(msg[0]).encryptMessage("hello world")));
+                            sendMessage("Code:3,Value:"+privateKeys.get(msg[0]).decryptMessage(privateKeys.get(msg[0]).encryptMessage("hello world")), msg[0]);
                             current = STAGE.END;
                             Log.i("Main", "SUCCESS");
                         }
