@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                             sendMessage("Code:1,Value:" + ga.toString(), msg[0]);
                         }
                         if (map.containsKey("Value")) {
-                            gab = ga.modPow(BigInteger.valueOf(Long.parseLong(map.get("Value"))), n);
+                            gab = BigInteger.valueOf(Long.parseLong(map.get("Value"))).modPow(a, n);
                             Toast.makeText(MainActivity.this, gab.toString(), Toast.LENGTH_LONG).show();
                             Log.e("key", "G: "+g.toString());
                             Log.e("key", "A: "+a.toString());
