@@ -8,6 +8,8 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.math.BigInteger;
+
 public class Message_Screen extends AppCompatActivity {
     public String contactName;
     public String contactNumber;

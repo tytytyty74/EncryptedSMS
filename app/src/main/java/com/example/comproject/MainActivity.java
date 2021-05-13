@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public String contactName;
     public String contactNumber;
     public Intent movetoMess;
+
     public BigInteger g = BigInteger.valueOf(31);
     public BigInteger n = BigInteger.valueOf(1152921504606846976L);
     private BigInteger a = BigInteger.valueOf(0);
@@ -217,6 +219,24 @@ public class MainActivity extends AppCompatActivity {
         // Creates a cursor and then send a query requesting contact data
         Cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
 
+        MatrixCursor matrix = new MatrixCursor(new String[] {ContactsContract.CommonDataKinds.Phone._ID, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone.NUMBER});
+        String lastNumber = "";
+
+        while(Cursor.moveToNext()){
+            String id = Cursor.getString(Cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone._ID));
+            String name = Cursor.getString(Cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+            String number = Cursor.getString(Cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER));
+
+            //Some condition to check previous data is not matched and only then add row
+            if(!lastNumber.contains(number)){
+                lastNumber = number;
+                matrix.addRow(new String[]{id, name, number});
+            }
+
+
+        }
+
+        Cursor.close();
 
         // contactdata is a string array that will be used to initially store phone number, names and id data from the contacts.
         String[] contactdata = {ContactsContract.CommonDataKinds.Phone.NUMBER, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, ContactsContract.CommonDataKinds.Phone._ID};
@@ -225,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
         int[] datastore = {android.R.id.text1, android.R.id.text2};
 
         // This is the middleman between the cursor and the contactlist.
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, Cursor, contactdata, datastore, flags);
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_2, matrix, contactdata, datastore, flags);
 
         // Calling setAdaptor() method to set the contactlist's adapter to the created one.
         ContactList.setAdapter(adapter);
