@@ -138,12 +138,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                         if (map.containsKey("Value")) {
                             gab = BigInteger.valueOf(Long.parseLong(map.get("Value"))).modPow(a, n);
-                            Toast.makeText(MainActivity.this, gab.toString(), Toast.LENGTH_LONG).show();
-                            Log.e("key", "G: "+g.toString());
-                            Log.e("key", "A: "+a.toString());
-                            Log.e("key", "B: "+map.get("Value"));
-                            Log.e("key", "G^A: "+ga.toString());
-                            Log.e("key", "G^AB: "+gab.toString());
                             if (privateKeys.containsKey(msg[0])) {
                                 privateKeys.get(msg[0]).setKey(gab);
                             }
