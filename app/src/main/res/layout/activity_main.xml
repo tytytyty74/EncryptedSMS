@@ -37,7 +37,9 @@
             android:id="@+id/ContactSearchBar"
             android:layout_width="@dimen/contact_search"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:iconifiedByDefault="false"
+            android:queryHint="Enter Contact" />
 
         <ImageButton
             android:id="@+id/SettingsBut"
