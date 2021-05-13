@@ -1,11 +1,14 @@
 package com.example.comproject;
 
+import android.util.Base64;
 import android.util.Log;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -58,12 +61,37 @@ public class Contact {
     public ArrayList<String> getUnreadMessages() {
         return unreadMessages;
     }
-    public String encryptMessage(String message)
+    private byte[] keyMagic(byte[] key)
     {
+        byte[] retval = new byte[16];
+        for (int i = 0; i < 16; i++)
+        {
+            retval[i] = 0;
+        }
+        for (int i = retval.length-1; i-(retval.length-key.length) >= 0; i--)
+        {
+            retval[i] = key[i-(retval.length-key.length)];
+        }
+        return retval;
+    }
+
+    /**
+     * Encrypts the message supplied, using the key provided by either the
+     * {@link #Contact(String, BigInteger)} constructor or the {@link #setKey(BigInteger)} method.
+     * if key has not been set yet, will error.
+     * @param message the message to be encrypted. must not be null
+     * @return the encrypted message in utf-8 format
+     */
+    public String encryptMessage(@NotNull String message)
+    {
+        if (key == null)
+        {
+            throw new IllegalStateException();
+        }
         try {
-            Cipher encrypt = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            encrypt.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(key.toByteArray(), "AES"));
-            return new String(encrypt.doFinal(message.getBytes()));
+            Cipher encrypt = Cipher.getInstance("AES");
+            encrypt.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(keyMagic(key.toByteArray()), "AES"));
+            return new String(Base64.encode(encrypt.doFinal(message.getBytes(StandardCharsets.UTF_8)), Base64.DEFAULT), StandardCharsets.UTF_8);
         }
         catch (NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException e)
         {
@@ -71,12 +99,12 @@ public class Contact {
         }
         return "";
     }
-    public String decryptMessage(String message)
+    public String decryptMessage(@NotNull String message)
     {
         try {
-            Cipher encrypt = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            encrypt.init(Cipher.DECRYPT_MODE, new SecretKeySpec(key.toByteArray(), "AES"));
-            return new String(encrypt.doFinal(message.getBytes()));
+            Cipher encrypt = Cipher.getInstance("AES");
+            encrypt.init(Cipher.DECRYPT_MODE, new SecretKeySpec(keyMagic(key.toByteArray()), "AES"));
+            return new String(encrypt.doFinal(Base64.decode(message.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT)), StandardCharsets.UTF_8);
         }
         catch (NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeyException | BadPaddingException | IllegalBlockSizeException e)
         {

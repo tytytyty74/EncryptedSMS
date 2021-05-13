@@ -1,21 +1,20 @@
 package com.example.comproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
-import androidx.cursoradapter.widget.SimpleCursorAdapter;
-
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.cursoradapter.widget.SimpleCursorAdapter;
 
 import java.math.BigInteger;
 import java.util.HashMap;
@@ -51,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.e("main", "Logs work?");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         return ThreadLocalRandom.current().nextLong(n.longValue());
     }
 
-    private Runnable runnable = new Runnable() {
+    private final Runnable runnable = new Runnable() {
         @Override
         public void run() {
             // Insert custom code here
@@ -125,6 +125,9 @@ public class MainActivity extends AppCompatActivity {
                             {
                                 privateKeys.put(msg[0], new Contact(msg[0], gab));
                             }
+                            sendMessage("Code:1,Value:"+privateKeys.get(msg[0]).encryptMessage("hello world"), msg[0]);
+                            Log.e("MAIN", "Code:2,Value:"+privateKeys.get(msg[0]).decryptMessage(privateKeys.get(msg[0]).encryptMessage("hello world")));
+                            sendMessage("Code:2,Value:"+privateKeys.get(msg[0]).decryptMessage(privateKeys.get(msg[0]).encryptMessage("hello world")), msg[0]);
                             current = STAGE.END;
                             Log.i("Main", "SUCCESS");
                         }

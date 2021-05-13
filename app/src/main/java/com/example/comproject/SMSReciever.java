@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.util.Log;
+import android.widget.Toast;
 
 public class SMSReciever extends BroadcastReceiver {
     private static final String TAG =
@@ -16,6 +17,7 @@ public class SMSReciever extends BroadcastReceiver {
     @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.e("main", "anything is working");
         // Get the SMS message.
         Bundle bundle = intent.getExtras();
         SmsMessage[] msgs;
@@ -44,7 +46,8 @@ public class SMSReciever extends BroadcastReceiver {
                 StaticQueue.queue(msgs[i].getOriginatingAddress(), msgs[i].getMessageBody().substring(0, msgs[i].getMessageBody().length()-8));
 
                 // Log and display the SMS message.
-                Log.i(TAG, "onReceive: " + strMessage);
+                Log.e(TAG, "onReceive: " + strMessage);
+                Toast.makeText(context, "hello world", Toast.LENGTH_SHORT).show();
 
             }
         }
