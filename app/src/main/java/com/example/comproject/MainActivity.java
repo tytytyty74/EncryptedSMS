@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     public BigInteger n = BigInteger.valueOf(1152921504606846976L);
     private BigInteger a = BigInteger.valueOf(0);
     private BigInteger ga;
-    private HashMap<String, Contact> privateKeys = new HashMap<>();
+    protected static HashMap<String, Contact> privateKeys = new HashMap<>();
     private BigInteger gab;
     private Handler handler = new Handler();
 

@@ -1,6 +1,5 @@
 package com.example.comproject;
 
-import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +13,7 @@ public class SMSReciever extends BroadcastReceiver {
     private static final String TAG =
             com.example.comproject.SMSReciever.class.getSimpleName();
     public static final String pdu_type = "pdus";
-    @TargetApi(Build.VERSION_CODES.M)
+    //@TargetApi(Build.VERSION_CODES.M)
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.e("main", "anything is working");
