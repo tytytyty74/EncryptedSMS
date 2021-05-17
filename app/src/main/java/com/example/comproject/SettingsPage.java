@@ -6,7 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Settings_Page extends AppCompatActivity{
+public class SettingsPage extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         a = BigInteger.valueOf(findA());
         ga = g.modPow(a, n);
         handler.post(runnable);
-        movetoMess = new Intent(getApplicationContext(), Message_Screen.class);
+        movetoMess = new Intent(getApplicationContext(), MessageScreen.class);
         ContactList = findViewById(R.id.Contact_List);
         getContacts();
         IntentFilter intentFilter = new IntentFilter("android.provider.Telephony.SMS_RECEIVED");
@@ -292,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(movetoMess);
     }
     public void movetoSettings(View view) {
-        Intent movetoSet = new Intent(getApplicationContext(), Settings_Page.class);
+        Intent movetoSet = new Intent(getApplicationContext(), SettingsPage.class);
         startActivity(movetoSet);
     }
 

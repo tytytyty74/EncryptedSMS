@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat;
 
 import java.util.Locale;
 
-public class Message_Screen extends AppCompatActivity {
+public class MessageScreen extends AppCompatActivity {
     public String contactName;
     public String contactNumber;
     private CheckBox secure;
@@ -69,7 +69,7 @@ public class Message_Screen extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
     public void movetoSettings(View view) {
-        Intent movetoSet = new Intent(getApplicationContext(), Settings_Page.class);
+        Intent movetoSet = new Intent(getApplicationContext(), SettingsPage.class);
         startActivity(movetoSet);
     }
     private boolean sendMessage(String text) {

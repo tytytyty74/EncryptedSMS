@@ -13,7 +13,7 @@ public class HelpScreen extends AppCompatActivity {
         setContentView(R.layout.help_page);
     }
     public void movetoSettings(View view) {
-        Intent movetoSet = new Intent(getApplicationContext(), Settings_Page.class);
+        Intent movetoSet = new Intent(getApplicationContext(), SettingsPage.class);
         startActivity(movetoSet);
     }
 }
