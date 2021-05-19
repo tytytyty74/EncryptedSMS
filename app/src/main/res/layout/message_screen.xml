@@ -23,7 +23,7 @@
                 android:layout_width="@dimen/button_size"
                 android:layout_height="@dimen/button_size"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                app:srcCompat="@drawable/profile_icon" />
 
             <Button
                 android:id="@+id/BackBut2"
@@ -57,7 +57,7 @@
                 android:layout_width="@dimen/button_size"
                 android:layout_height="@dimen/button_size"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_launcher_background" />
+                android:background="@drawable/phone_call" />
 
             <ImageButton
                 android:id="@+id/SearchBut2"

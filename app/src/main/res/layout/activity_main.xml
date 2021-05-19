@@ -20,7 +20,7 @@
             android:layout_height="@dimen/button_size"
             android:layout_weight="1"
             android:visibility="visible"
-            app:srcCompat="@drawable/ic_launcher_background"
+            app:srcCompat="@drawable/profile_icon"
             tools:visibility="visible" />
 
         <Button
